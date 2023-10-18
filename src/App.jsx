@@ -5,6 +5,7 @@ import Footer from './components/common/Footer';
 import Home from './components/Accueil';
 import PageDiscover from './components/PageDiscover';
 import PageUs from './components/PageUs';
+import NotFound from './components/Notfound';
 function App() {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
@@ -16,6 +17,7 @@ function App() {
             <Route exact path='/' element={<Home/>}/>
             <Route exact path='/PageDiscover' element={<PageDiscover/>}/>
             <Route exact path='/PageUs' element={<PageUs/>}/>
+            <Route exact path='*' element={<NotFound/>}/>
           </Routes>
         </ChakraProvider>
       </Box>
