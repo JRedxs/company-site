@@ -18,7 +18,7 @@ const testimonials = [
     content:
       'Trouvez une phrase bidon',
     avatar:
-      'public/img/moi.jpeg',
+      '/img/moi.jpeg',
   },
   {
     name: 'Nathan V.',

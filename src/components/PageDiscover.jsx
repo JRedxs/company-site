@@ -56,7 +56,7 @@ export default function PageDiscover() {
         <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
           <Avatar src={'https://avatars0.githubusercontent.com/u/1164541?v=4'} />
           <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600} color={'gray.500'}>Nom utilisateur</Text>
+            <Text fontWeight={600} color={'gray.500'}>Nom client</Text>
             <Text color={'gray.500'}>Ajouter date </Text>
           </Stack>
         </Stack>
