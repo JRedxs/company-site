@@ -34,7 +34,7 @@ const cardData = [
         description: 'Ancien joueur pro, j\'ai décidé de créer un site permettant de retrouver tout mes buts inscrits durant ma carrière, bon courage à vous il y en a beaucoup.',
         image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
     },
-    
+
 
 
 ];
@@ -46,10 +46,10 @@ export default function PageDiscover() {
         <>
             <SimpleGrid
                 spacing={1}
-                minChildWidth="300px"  // Reduced size to fit 3 cards per row
+                minChildWidth={["100%", "300px", "300px"]}  // Full width on mobile, 300px on tablet and desktop
                 maxHeight="fit-content"
                 overflowY="auto"
-                templateColumns='repeat(3, 1fr)'  // Set to repeat 3 times for 3 cards per row
+                templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']}  // 1 card on mobile, 2 on tablet, 3 on desktop
             >
                 {cardData.map((card, index) => (
                     <Card key={index} maxW='xs' marginTop={'10px'} marginLeft={'auto'} marginRight={'auto'} marginBottom={'20px'}>
