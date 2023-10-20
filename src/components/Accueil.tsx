@@ -1,5 +1,8 @@
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { FaEnvelope as EmailIcon } from 'react-icons/fa';
+import { BiSolidRightArrowCircle, BiSolidDevices } from "react-icons/bi";
 import React from 'react'
+
 
 import {
   Container,
@@ -54,30 +57,48 @@ export default function Home() {
           <Text color={'gray.500'}>
             Ecrire le text pour nous définir
           </Text>
-          <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
-            <Button
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={6}
-              colorScheme={'red'}
-              bg={'red.400'}
-              as={RouterLink}
-              to={'/PageUs'}
-              _hover={{ bg: 'red.500' }}>
-              Découvrez-nous
-            </Button>
-            <Button
-              as={RouterLink}
-              to={'/PageDiscover'}
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={6}
+          <Stack spacing={{ base: 4, sm: 6 }} direction="column">
+            <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
+              <Button
+                rightIcon={<BiSolidRightArrowCircle />}
+                rounded={'full'}
+                size={'lg'}
+                fontWeight={'normal'}
+                px={6}
+                colorScheme={'red'}
+                bg={'red.400'}
+                as={RouterLink}
+                to={'/PageUs'}
+                _hover={{ bg: 'red.500' }}>
+                Découvrez-nous
+              </Button>
+              <Button
+                rightIcon={<BiSolidDevices />}
+                as={RouterLink}
+                to={'/PageDiscover'}
+                rounded={'full'}
+                size={'lg'}
+                fontWeight={'normal'}
+                px={6}
+                _hover={{ bg: 'gray.300' }}
               >
-              Nos projets !
+                Nos projets
+              </Button>
+            </Stack>
+            </Stack>
+            <Stack direction={{ base: 'column', sm: 'row' }} > 
+            <Button
+              rightIcon={<EmailIcon />}
+              rounded={'full'}
+              size={'lg'}
+              fontWeight={'normal'}
+              as={RouterLink}
+              bg={'gray.200'}
+              to={'/Contact'}
+              _hover={{ bg: 'gray.300' }}>
+              Contactez-nous
             </Button>
-          </Stack>
+            </Stack> 
         </Stack>
         <Flex
           flex={1}
