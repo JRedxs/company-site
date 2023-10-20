@@ -47,15 +47,15 @@ export default function Home() {
                 bg: 'red.400',
                 zIndex: -1,
               }}>
-              Trouvez une phrase,
+              Next Wave
             </Text>
             <br />
             <Text as={'span'} color={'red.400'}>
-              d'accroche
+            Naviguez dans le digital !
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Ecrire le text pour nous définir
+          Plongez dans l'ère numérique avec nous, là où chaque vague d'innovation vous rapproche d'une présence en ligne inégalée et d'un avenir prospère pour votre entreprise.
           </Text>
           <Stack spacing={{ base: 4, sm: 6 }} direction="column">
             <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>

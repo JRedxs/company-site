@@ -4,6 +4,7 @@ import {
   Box,
   Flex,
   Button,
+  Image,  // Ajoutez cette ligne
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -26,7 +27,7 @@ const NavLink = (props: Props) => {
       rounded={'md'}
       _hover={{
         textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
+        bg: useColorModeValue('gray.400', 'gray.700'),
       }}
       href={'#'}>
       {children}
@@ -41,7 +42,10 @@ export default function Nav() {
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box as={RouterLink} to={'/'}>Logo à ajouter + nom de boite</Box>
+          <Flex as={RouterLink} to={'/'} alignItems="center"> 
+            <Image src="/img/logo_company.png" alt="Company Logo" boxSize="70px" mr={2} />  
+
+          </Flex>
           <Flex alignItems={'center'}>
            <Stack direction={'row'} spacing={7}>              
               <Button onClick={toggleColorMode}>

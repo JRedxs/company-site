@@ -55,7 +55,7 @@ const SocialButton = ({
 export default function Footer() {
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      bg={useColorModeValue('gray.200', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
         as={Stack}
@@ -67,7 +67,7 @@ export default function Footer() {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Logo />
-        <Text>© 2023 Ajouter nom d'entreprise</Text>
+        <Text>© 2023 Next Wave</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Facebook'} href={'#'}>
             <FaFacebook />
