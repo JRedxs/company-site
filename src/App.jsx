@@ -6,6 +6,7 @@ import Home from './components/Accueil';
 import PageDiscover from './components/PageDiscover';
 import PageUs from './components/PageUs';
 import NotFound from './components/Notfound';
+import Contact from './components/Contact';
 function App() {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
@@ -18,6 +19,7 @@ function App() {
             <Route exact path='/PageDiscover' element={<PageDiscover/>}/>
             <Route exact path='/PageUs' element={<PageUs/>}/>
             <Route exact path='*' element={<NotFound/>}/>
+            <Route exact path='/Contact' element={<Contact/>}/>
           </Routes>
         </ChakraProvider>
       </Box>

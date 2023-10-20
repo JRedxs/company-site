@@ -1,12 +1,15 @@
 import React from 'react'
-
+import { Link as RouterLink, useNavigate } from 'react-router-dom'
+import { FaEnvelope as EmailIcon } from 'react-icons/fa';
 import {
   Avatar,
   Box,
   chakra,
   Flex,
+  Button,
   SimpleGrid,
   useColorModeValue,
+  Stack,
 } from '@chakra-ui/react'
 
 const testimonials = [
@@ -145,6 +148,23 @@ export default function GridBlurredBackdrop() {
           <TestimonialCard key={index} {...cardInfo} index={index} />
         ))}
       </SimpleGrid>
+      <Stack
+        align={'center'}
+        justifyContent={'center'}  // Center the button horizontally
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 10, md: 18 }}
+        direction={{ base: 'column', md: 'row' }}>
+        <Button
+          rightIcon={<EmailIcon />} 
+          colorScheme='dark' 
+          variant='outline'
+          as={RouterLink}
+          bg={useColorModeValue('black.400', 'white.200')}
+          to={'/Contact'}
+          _hover={{ bg: 'gray.400' }}>
+          Contactez-nous
+        </Button>
+      </Stack>
     </Flex>
   )
 }
