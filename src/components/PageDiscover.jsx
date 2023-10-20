@@ -62,11 +62,6 @@ export default function PageDiscover() {
                                         <Text>{card.role}</Text>
                                     </Box>
                                 </Flex>
-                                <IconButton
-                                    variant='ghost'
-                                    colorScheme='gray'
-                                    aria-label='See menu'
-                                />
                             </Flex>
                         </CardHeader>
                         <CardBody>
