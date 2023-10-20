@@ -1,66 +1,97 @@
-import React from 'react'
-
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  Box,
-  Center,
-  Heading,
-  Text,
-  Stack,
-  Avatar,
-  useColorModeValue,
-} from '@chakra-ui/react'
+    Box,
+    Center,
+    Image,
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    IconButton,
+    Button,
+    Heading,
+    Text,
+    Avatar,
+    Flex,
+    SimpleGrid
+} from '@chakra-ui/react';
+
+import { BiHomeAlt } from "react-icons/bi";
+
+const cardData = [
+    {
+        name: 'Mustafa Mohamed',
+        role: 'Fondateur de SITE',
+        avatar: '/img/nathan.jpg',
+        description: 'Ancien joueur pro, j\'ai décidé de créer un site permettant de retrouver tout mes buts inscrits durant ma carrière, bon courage à vous il y en a beaucoup.',
+        image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+    },
+    {
+        name: 'Enzo',
+        role: 'Fondateur',
+        avatar: '/img/enzo.jpeg',
+        description: 'Ancien joueur pro, j\'ai décidé de créer un site permettant de retrouver tout mes buts inscrits durant ma carrière, bon courage à vous il y en a beaucoup.',
+        image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+    },
+
+];
 
 export default function PageDiscover() {
-  return (
-    <Center py={6}>
-      <Box
-        maxW={'445px'}
-        w={'full'}
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        bg={useColorModeValue('white', 'gray.900')}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        p={6}
-        overflow={'hidden'}>
-        <Box h={'210px'} bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
-          <img
-            src={
-              'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-            }
-            fill
-            alt="Example"
-          />
-        </Box>
-        <Stack>
-          <Text
-            color={'green.500'}
-            textTransform={'uppercase'}
-            fontWeight={800}
-            fontSize={'sm'}
-            letterSpacing={1.1}>
-            Blog
-          </Text>
-          <Heading
-            // eslint-disable-next-line react-hooks/rules-of-hooks
-            color={useColorModeValue('gray.700', 'white')}
-            fontSize={'2xl'}
-            fontFamily={'body'}>
-            Boost your conversion rate
-          </Heading>
-          <Text color={'gray.500'}>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-            voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-          </Text>
-        </Stack>
-        <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
-          <Avatar src={'https://avatars0.githubusercontent.com/u/1164541?v=4'} />
-          <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-            <Text fontWeight={600} color={'gray.500'}>Nom client</Text>
-            <Text color={'gray.500'}>Ajouter date </Text>
-          </Stack>
-        </Stack>
-      </Box>
-    </Center>
-  )
+    const navigate = useNavigate();
+
+    return (
+        <>
+            <SimpleGrid
+                spacing={1}
+                minChildWidth="500px"
+                maxHeight="fit-content"
+                overflowY="auto"
+                templateColumns='repeat(auto-fill, minmax(500px, 1fr))'
+            >            
+            {cardData.map((card, index) => (
+                <Card key={index} maxW='md' marginTop={'10px'} marginLeft={'auto'} marginRight={'auto'} marginBottom={'20px'}>
+                    <CardHeader>
+                        <Flex spacing='4'>
+                            <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                                <Avatar name={card.name} src={card.avatar} />
+                                <Box>
+                                    <Heading size='sm'>{card.name}</Heading>
+                                    <Text>{card.role}</Text>
+                                </Box>
+                            </Flex>
+                            <IconButton
+                                variant='ghost'
+                                colorScheme='gray'
+                                aria-label='See menu'
+                            />
+                        </Flex>
+                    </CardHeader>
+                    <CardBody>
+                        <Text>{card.description}</Text>
+                    </CardBody>
+                    <Image
+                        objectFit='cover'
+                        src={card.image}
+                        alt='Chakra UI'
+                    />
+
+                    <CardFooter
+                        justify='space-between'
+                        flexWrap='wrap'
+                        sx={{
+                            '& > button': {
+                                minW: '136px',
+                            },
+                        }}
+                    >
+                        <Button flex='1' variant='ghost' color={'black.400, white.200'} leftIcon={<BiHomeAlt />}>
+                            Site du client
+                        </Button>
+                    </CardFooter>
+                </Card>
+            ))}
+            </SimpleGrid>
+        </>
+    );
 }

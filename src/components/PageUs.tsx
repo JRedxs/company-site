@@ -4,9 +4,7 @@ import {
   Avatar,
   Box,
   chakra,
-  Container,
   Flex,
-  Icon,
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -14,19 +12,19 @@ import {
 const testimonials = [
   {
     name: 'Enzo V.',
-    role: 'Définir Role enzo',
+    role: 'Associé',
     content:
       'Trouvez une phrase bidon',
     avatar:
-      '/img/moi.jpeg',
+      '/img/enzo.jpeg',
   },
   {
     name: 'Nathan V.',
-    role: 'Définir Role nathan',
+    role: 'Associé',
     content:
       "Trouvez une phrase bidon",
     avatar:
-      'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+      '/img/nathan.jpg',
   },
 ]
 
