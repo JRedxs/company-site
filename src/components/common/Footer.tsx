@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react'
 import { FaFacebook, FaLinkedin, FaYoutube } from 'react-icons/fa'
 import { ReactNode } from 'react'
-import { auto } from '@popperjs/core'
 
 const Logo = (props: any) => {
   return (
@@ -67,7 +66,8 @@ export default function Footer() {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Logo />
-        <Text>© 2023 Next Wave</Text>
+
+        <Text>© 2023 Next Wave  </Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Facebook'} href={'#'}>
             <FaFacebook />
