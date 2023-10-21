@@ -1,29 +1,27 @@
 import React from 'react'
 import {
-  Box,
-  Button,
+  Container,
   Flex,
+  Box,
+  Heading,
+  Button,
   FormControl,
   FormLabel,
-  Heading,
-  IconButton,
   Input,
   InputGroup,
   InputLeftElement,
-  Text,
-  Stack,
   Textarea,
-  Tooltip,
-  useClipboard,
-  useColorModeValue,
-  VStack,
+  Image,
+  useColorModeValue
 } from '@chakra-ui/react'
-import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs'
-import { MdEmail, MdOutlineEmail } from 'react-icons/md'
+import {
+  MdEmail,
+  MdOutlineEmail,
+  MdPhone,
+} from 'react-icons/md'
+import { BsPerson } from 'react-icons/bs'
 
-export default function ContactFormWithSocialButtons() {
-  const { hasCopied, onCopy } = useClipboard('example@example.com')
-
+export default function Contact() {
   return (
     <Flex
       align="center"
@@ -47,90 +45,53 @@ export default function ContactFormWithSocialButtons() {
         zIndex: -1
       }}
     >
-      <Box borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }}>
-        <Box>
-          <VStack spacing={{ base: 4, md: 8, lg: 5 }}>
+      <Container>
 
-            <Stack
-              spacing={{ base: 4, md: 8, lg: 20 }}
-              direction={{ base: 'column', md: 'row' }}>
+        <Box bg={useColorModeValue('white', 'gray.800')} p={5} borderRadius="md" shadow="md" w={{ base: "90%", md: "600px" }}>
+          <Image src="/img/logo_company.png" alt="Company Logo" boxSize="170px" display="block" mx="auto" my={2} />
 
-              <Box
-                bg={'gray.100'}
-                borderRadius="lg"
-                p={8}
-                color={useColorModeValue('black')}
-                shadow="base">
-                <VStack spacing={5}>
-                  <Heading
-                    color={'black'}
-                    fontSize={{
-                      base: '2xl',
-                      md: '4xl',
-                    }}>
-                    Contact
-                  </Heading>
-                  <FormControl isRequired color={useColorModeValue('black')}>
-                    <FormLabel >Nom</FormLabel>
-                    <InputGroup color={useColorModeValue('black')}>
-                      <InputLeftElement>
-                        <BsPerson />
-                      </InputLeftElement>
-                      <Input
-                        type="text"
-                        name="name"
-                        placeholder="Votre Nom"
-                        color="black"
-                        _placeholder={{ color: 'gray.500' }}
-                        borderColor={'gray.600'}
-                      />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl isRequired>
-                    <FormLabel>Email</FormLabel>
-                    <InputGroup>
-                      <InputLeftElement>
-                        <MdOutlineEmail />
-                      </InputLeftElement>
-                      <Input
-                        type="email"
-                        name="email"
-                        placeholder="Votre Email"
-                        color="black"
-                        _placeholder={{ color: 'gray.500' }}
-                        borderColor={'gray.600'}
-                      />
-                    </InputGroup>
-                  </FormControl>
-                  <FormControl isRequired>
-                    <FormLabel color={'black'}>Message</FormLabel>
-                    <Textarea
-                      name="message"
-                      placeholder="Décrire votre projet"
-                      _placeholder={{ color: 'gray.500' }}
-                      borderColor={'gray.600'}
-                      rows={6}
-                      resize="none"
-                      color="black"
-                    />
-                  </FormControl>
-                  <Button
-                    colorScheme="blue"
-                    bg="gray.400"
-                    color="white"
-                    _hover={{
-                      bg: 'black',
-                    }}
-                    width="full">
-                    Envoyer
-                  </Button>
-                </VStack>
-              </Box>
-            </Stack>
-          </VStack>
+          <Heading mb={5} color="black" textAlign="center">Contactez-nous</Heading>
+
+          <FormControl id="name" mb={4}>
+            <FormLabel color="black">Nom</FormLabel>
+            <InputGroup borderColor={'gray.400'}>
+              <InputLeftElement pointerEvents="none" color="black">
+                <BsPerson color="black" />
+              </InputLeftElement>
+              <Input type="text" placeholder="Entrez votre nom" color="black" _placeholder={{ color: 'black' }} />
+            </InputGroup>
+          </FormControl>
+
+          <FormControl id="email" mb={4}>
+            <FormLabel color="black">Email</FormLabel>
+            <InputGroup borderColor={'gray.400'}>
+              <InputLeftElement pointerEvents="none" color="black">
+                <MdOutlineEmail color="black" />
+              </InputLeftElement>
+              <Input type="email" placeholder="Entrez votre email" color="black" _placeholder={{ color: 'black' }} />
+            </InputGroup>
+          </FormControl>
+
+          <FormControl id="phone" mb={4}>
+            <FormLabel color="black">Téléphone</FormLabel>
+            <InputGroup borderColor={'gray.400'}>
+              <InputLeftElement pointerEvents="none" color="black">
+                <MdPhone color="black" />
+              </InputLeftElement>
+              <Input type="tel" placeholder="N° de téléphone" color="black" _placeholder={{ color: 'black' }} />
+            </InputGroup>
+          </FormControl>
+
+          <FormControl id="message" mb={4} borderColor={'gray.400'}>
+            <FormLabel color="black">Message</FormLabel>
+            <Textarea placeholder="Décrire votre projet" color="black" _placeholder={{ color: 'black' }} />
+          </FormControl>
+
+          <Button leftIcon={<MdEmail />} colorScheme="teal" variant="solid" type="submit">
+            Envoyer
+          </Button>
         </Box>
-      </Box>
+      </Container>
     </Flex>
   )
-
 }

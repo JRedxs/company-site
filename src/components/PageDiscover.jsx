@@ -58,7 +58,7 @@ export default function PageDiscover() {
                                 <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
                                     <Avatar name={card.name} src={card.avatar} />
                                     <Box>
-                                        <Heading size='sm'>{card.name}</Heading>
+                                        <Heading size=''>{card.name}</Heading>
                                         <Text>{card.role}</Text>
                                     </Box>
                                 </Flex>
