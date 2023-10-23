@@ -84,10 +84,7 @@ export default function Home() {
               >
                 Nos projets
               </Button>
-            </Stack>
-            </Stack>
-            <Stack direction={{ base: 'column', sm: 'row' }} > 
-            <Button
+              <Button
               rightIcon={<EmailIcon />}
               rounded={'full'}
               size={'lg'}
@@ -98,7 +95,8 @@ export default function Home() {
               _hover={{ bg: 'gray.300' }}>
               Contactez-nous
             </Button>
-            </Stack> 
+            </Stack>
+            </Stack>
         </Stack>
         <Flex
           flex={1}

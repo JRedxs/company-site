@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import emailjs from 'emailjs-com';
+import { Router, Link as RouterLink, useNavigate } from 'react-router-dom'
 
 import {
   Container,
@@ -14,7 +15,10 @@ import {
   InputLeftElement,
   Textarea,
   Image,
-  useColorModeValue
+  useColorModeValue,
+  AlertIcon,  //Remplacer par des toasts
+  Alert, // supprimer aussi ici
+  useToast
 } from '@chakra-ui/react'
 import {
   MdEmail,
@@ -25,6 +29,19 @@ import { BsPerson } from 'react-icons/bs'
 
 export default function Contact() {
 
+  const toast = useToast()
+  const statuses = ['success', 'error', 'warning', 'info']
+
+
+  const [fieldsFilled, setFieldsFilled] = useState({
+    user_name: true,
+    user_email: true,
+    user_phone: true,
+    message: true
+  });
+
+  const navigate = useNavigate();
+
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -33,6 +50,22 @@ export default function Contact() {
     const email = e.target.user_email.value;
     const phone = e.target.user_phone.value;
     const message = e.target.message.value;
+
+    if (!name || !email || !phone || !message) {
+      setFieldsFilled({
+        user_name: !!name,
+        user_email: !!email,
+        user_phone: !!phone,
+        message: !!message
+      });
+
+      if (!name) toast({ title: "Le nom est obligatoire.", status: "error" });
+      if (!email) toast({ title: "L'email est obligatoire.", status: "error" });
+      if (!phone) toast({ title: "Le téléphone est obligatoire.", status: "error" });
+      if (!message) toast({ title: "Le message est obligatoire.", status: "error" });
+
+      return;
+    }
 
 
     const messageBody = `
@@ -50,10 +83,22 @@ export default function Contact() {
     emailjs.send('service_voybnk5', 'template_w776225', templateParams, 'DfZN6aPD4p_A0xqZL') //Anonymiser les valeurs
       .then((result) => {
         console.log(result.text);
-        alert("Email envoyé avec succès!"); //Changez les alerts
+        toast({
+          title: "E-mail envoyé avec succès.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        navigate('/');
       }, (error) => {
         console.log(error.text);
-        alert("Erreur lors de l'envoi de l'e-mail. Veuillez réessayer.");  //Changez les alerts
+        toast({
+          title: "Erreur lors de l'envoi de l'e-mail.",
+          description: "Veuillez réessayer.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
       });
   };
 
@@ -62,7 +107,7 @@ export default function Contact() {
       align="center"
       justify="center"
       id="contact"
-      minHeight="86vh"
+      minHeight="calc(100vh - 130px)" // Soustraction de la hauteur totale de la navbar et du footer
       position="relative"
       _before={{
         content: '""',
@@ -80,15 +125,15 @@ export default function Contact() {
         zIndex: -1
       }}
     >
-      <Container>
+      <Container maxW="md">
 
-        <Box bg={useColorModeValue('white', 'gray.800')} p={5} borderRadius="md" shadow="md" w={{ base: "90%", md: "600px" }}>
+        <Box bg={useColorModeValue('white', 'gray.800')} p={5} borderRadius="md" shadow="md">
           <form onSubmit={sendEmail}>
-            <Image src="/img/logo_company.png" alt="Company Logo" boxSize="170px" display="block" mx="auto" my={2} />
+            <Image src="/img/logo_company.png" alt="Company Logo" boxSize="110px" display="block" mx="auto" my={1} />
 
-            <Heading mb={5} color="black" textAlign="center">Contactez-nous</Heading>
+            <Heading fontSize="xl" mb={2} color="black" textAlign="center">Contactez-nous</Heading>
 
-            <FormControl id="name" mb={4} isRequired>
+            <FormControl id="name" mb={3}>
               <FormLabel color="black">Nom</FormLabel>
               <InputGroup borderColor={'gray.400'}>
                 <InputLeftElement pointerEvents="none" color="black">
@@ -96,9 +141,10 @@ export default function Contact() {
                 </InputLeftElement>
                 <Input type="text" name="user_name" placeholder="Entrez votre nom" color="black" _placeholder={{ color: 'black' }} />
               </InputGroup>
+              {!fieldsFilled.user_name}
             </FormControl>
 
-            <FormControl id="email" mb={4} isRequired>
+            <FormControl id="email" mb={3}>
               <FormLabel color="black">Email</FormLabel>
               <InputGroup borderColor={'gray.400'}>
                 <InputLeftElement pointerEvents="none" color="black">
@@ -106,8 +152,10 @@ export default function Contact() {
                 </InputLeftElement>
                 <Input type="email" name="user_email" placeholder="Entrez votre email" color="black" _placeholder={{ color: 'black' }} />
               </InputGroup>
+              {!fieldsFilled.user_email}
             </FormControl>
-            <FormControl id="phone" mb={4} isRequired>
+
+            <FormControl id="phone" mb={3}>
               <FormLabel color="black">Téléphone</FormLabel>
               <InputGroup borderColor={'gray.400'}>
                 <InputLeftElement pointerEvents="none" color="black">
@@ -115,16 +163,18 @@ export default function Contact() {
                 </InputLeftElement>
                 <Input type="tel" name="user_phone" placeholder="N° de téléphone" color="black" _placeholder={{ color: 'black' }} />
               </InputGroup>
+              {!fieldsFilled.user_phone}
             </FormControl>
 
-            <FormControl id="message" mb={4} borderColor={'gray.400'} isRequired>
+            <FormControl id="message" mb={3} borderColor={'gray.400'}>
               <FormLabel color="black">Message</FormLabel>
               <Textarea name="message" placeholder="Décrire votre projet" color="black" _placeholder={{ color: 'black' }} />
+              {!fieldsFilled.message}
             </FormControl>
 
             <Button leftIcon={<MdEmail />} colorScheme="teal" variant="solid" type="submit">
               Envoyer
-            </Button> {/* Ajouter une vérification si tout les champs sont remplis*/}
+            </Button>
           </form>
         </Box>
       </Container>
