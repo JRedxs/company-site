@@ -127,7 +127,7 @@ export default function Contact() {
     >
       <Container maxW="md">
 
-        <Box bg={useColorModeValue('white', 'gray.800')} p={5} borderRadius="md" shadow="md">
+        <Box bg={useColorModeValue('white', 'gray.800')} p={5} borderRadius="md" shadow="md" marginTop={'10px'} marginBottom={'10px'}>
           <form onSubmit={sendEmail}>
             <Image src="/img/logo_company.png" alt="Company Logo" boxSize="110px" display="block" mx="auto" my={1} />
 
