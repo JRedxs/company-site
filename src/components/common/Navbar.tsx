@@ -27,7 +27,7 @@ const NavLink = (props: Props) => {
       rounded={'md'}
       _hover={{
         textDecoration: 'none',
-        bg: useColorModeValue('gray.400', 'gray.700'),
+        bg: useColorModeValue('blue.400', 'gray.700'),
       }}
       href={'#'}>
       {children}
@@ -39,21 +39,24 @@ export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode()
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+    <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Flex as={RouterLink} to={'/'} alignItems="center"> 
-            <Image src="/img/logo_company.png" alt="Company Logo" boxSize="70px" mr={2} />  
-
-          </Flex>
-          <Flex alignItems={'center'}>
-           <Stack direction={'row'} spacing={7}>              
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
-            </Stack>
-          </Flex>
+            <Flex as={RouterLink} to={'/'} alignItems="center"> 
+                <Box  bg={useColorModeValue('gray.100', 'white')} px={2} borderRadius={10} boxSize={'80px'} width={'75px'} h={'50px'} display="flex" alignItems="center" justifyContent="center">
+                    <Image src="/img/logo_company.png" alt="Company Logo" boxSize="60px" />  
+                </Box>
+            </Flex>
+            <Flex alignItems={'center'}>
+                <Stack direction={'row'} spacing={6}>              
+                    <Button onClick={toggleColorMode}>
+                        {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                    </Button>
+                </Stack>
+            </Flex>
         </Flex>
-      </Box>
-    </>
+    </Box>
+</>
+
+
   )
 }

@@ -37,6 +37,7 @@ export default function Home() {
             <Text
               as={'span'}
               position={'relative'}
+              color={'red.400'}
               _after={{
                 content: "''",
                 width: 'full',
@@ -44,13 +45,13 @@ export default function Home() {
                 position: 'absolute',
                 bottom: 1,
                 left: 0,
-                bg: 'red.400',
+                bg: 'blue.100',
                 zIndex: -1,
               }}>
               Next Wave
             </Text>
             <br />
-            <Text as={'span'} color={'red.400'}>
+            <Text as={'span'} color={'blue.400'}>
             Naviguez dans le digital !
             </Text>
           </Heading>
@@ -65,11 +66,11 @@ export default function Home() {
                 size={'lg'}
                 fontWeight={'normal'}
                 px={6}
-                colorScheme={'red'}
-                bg={'red.400'}
+                colorScheme={'blue'}
+                bg={'blue.400'}
                 as={RouterLink}
                 to={'/PageUs'}
-                _hover={{ bg: 'red.500' }}>
+                _hover={{ bg: 'blue.500' }}>
                 Découvrez-nous
               </Button>
               <Button
@@ -90,7 +91,7 @@ export default function Home() {
               size={'lg'}
               fontWeight={'normal'}
               as={RouterLink}
-              bg={'gray.200'}
+              bg={'red.400'}
               to={'/Contact'}
               _hover={{ bg: 'gray.300' }}>
               Contactez-nous

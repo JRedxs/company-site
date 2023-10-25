@@ -116,23 +116,33 @@ export default function GridBlurredBackdrop() {
       direction={'column'}
       width={'full'}
       overflow={'hidden'}
-      color={'black.400'}>
+      color={'black.400'}
+      _before={{
+        content: '""',
+        position: "absolute",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
+        bgImage: "url('/img/team_bg.jpg')",
+        bgSize: "cover",
+        bgPosition: "center",
+        bgRepeat: "no-repeat",
+        filter: "blur(2px)",
+        opacity: "0.6",
+        zIndex: -1
+      }}
+      >
       <Box width={{ base: 'full', sm: 'lg', lg: 'xl' }} margin={'auto'}>
-        <chakra.h3
-          fontFamily={'Work Sans'}
-          fontWeight={'bold'}
-          fontSize={20}
-          textTransform={'uppercase'}
-          color={'black.400, white.200'}>
-          phrase bidon
-        </chakra.h3>
         <chakra.h1
           py={5}
           fontSize={48}
           fontFamily={'Work Sans'}
           fontWeight={'bold'}
-          color={'black.400, white.200'}>
-          Trouvez une phrase bidon
+          color={'black.400, white.200'}
+          >
+          
+          Next Wave
         </chakra.h1>
         <chakra.h2
           margin={'auto'}
@@ -140,7 +150,7 @@ export default function GridBlurredBackdrop() {
           fontFamily={'Inter'}
           fontWeight={'medium'}
           color={'black.400, white.200'}>
-          petite phrase ici
+            Entreprise 100% française, nous souhaitons aider les entreprises à digitaliser leur marque en créant des sites web vitrines sur-mesure.
         </chakra.h2>
       </Box>
       <SimpleGrid columns={{ base: 1, xl: 2 }} spacing={'20'} mt={16} mb={16} mx={'auto'}>

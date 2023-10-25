@@ -30,7 +30,6 @@ import { BsPerson } from 'react-icons/bs'
 export default function Contact() {
 
   const toast = useToast()
-  const statuses = ['success', 'error', 'warning', 'info']
 
 
   const [fieldsFilled, setFieldsFilled] = useState({
@@ -59,10 +58,10 @@ export default function Contact() {
         message: !!message
       });
 
-      if (!name) toast({ title: "Le nom est obligatoire.", status: "error" });
-      if (!email) toast({ title: "L'email est obligatoire.", status: "error" });
-      if (!phone) toast({ title: "Le téléphone est obligatoire.", status: "error" });
-      if (!message) toast({ title: "Le message est obligatoire.", status: "error" });
+      if (!name) toast({ title: "Le nom est obligatoire.", position: 'top',status: "error" });
+      if (!email) toast({ title: "L'email est obligatoire.", position: 'top',status: "error" });
+      if (!phone) toast({ title: "Le téléphone est obligatoire.", position: 'top',status: "error" });
+      if (!message) toast({ title: "Le message est obligatoire.", position: 'top',status: "error" });
 
       return;
     }
@@ -85,6 +84,7 @@ export default function Contact() {
         console.log(result.text);
         toast({
           title: "E-mail envoyé avec succès.",
+          position: 'top',
           status: "success",
           duration: 5000,
           isClosable: true,
