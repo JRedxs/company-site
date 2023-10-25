@@ -120,10 +120,10 @@ export default function Home() {
           />
           <Box
             position={'relative'}
-            height={'300px'}
+            width={'100%'}
+            paddingBottom={'56.25%'}  // Pour un rapport d'aspect de 16:9
             rounded={'2xl'}
             boxShadow={'2xl'}
-            width={'full'}
             overflow={'hidden'}>
             <IconButton
               aria-label={'Play Button'}
@@ -144,12 +144,11 @@ export default function Home() {
               autoPlay
               muted
               loop
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              style={{ objectFit: 'cover', objectPosition: 'center', position: 'absolute', top: 0, left: 0 }}
             >
               <source src="video/next_wave_presentation.mp4" type="video/mp4" />
               Votre navigateur ne prend pas en charge la vidéo.
             </video>
-
           </Box>
         </Flex>
       </Stack>
