@@ -45,18 +45,18 @@ export default function Home() {
                 position: 'absolute',
                 bottom: 1,
                 left: 0,
-                bg: 'blue.100',
+                bg: 'white',
                 zIndex: -1,
               }}>
               Next Wave
             </Text>
             <br />
             <Text as={'span'} color={'blue.400'}>
-            Naviguez dans le digital !
+              Naviguez dans le digital !
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-          Plongez dans l'ère numérique avec nous, là où chaque vague d'innovation vous rapproche d'une présence en ligne inégalée et d'un avenir prospère pour votre entreprise.
+            Plongez dans l'ère numérique avec nous, là où chaque vague d'innovation vous rapproche d'une présence en ligne inégalée et d'un avenir prospère pour votre entreprise.
           </Text>
           <Stack spacing={{ base: 4, sm: 6 }} direction="column">
             <Stack spacing={{ base: 4, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
@@ -70,6 +70,7 @@ export default function Home() {
                 bg={'blue.400'}
                 as={RouterLink}
                 to={'/PageUs'}
+                textColor={'white'}
                 _hover={{ bg: 'blue.500' }}>
                 Découvrez-nous
               </Button>
@@ -81,23 +82,26 @@ export default function Home() {
                 size={'lg'}
                 fontWeight={'normal'}
                 px={6}
+                bg={'gray.100'}
+                textColor={'black'}
                 _hover={{ bg: 'gray.300' }}
               >
                 Nos projets
               </Button>
               <Button
-              rightIcon={<EmailIcon />}
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              as={RouterLink}
-              bg={'red.400'}
-              to={'/Contact'}
-              _hover={{ bg: 'gray.300' }}>
-              Contactez-nous
-            </Button>
+                rightIcon={<EmailIcon />}
+                rounded={'full'}
+                size={'lg'}
+                fontWeight={'normal'}
+                as={RouterLink}
+                bg={'red.400'}
+                textColor={'white'}
+                to={'/Contact'}
+                _hover={{ bg: 'gray.300' }}>
+                Contactez-nous
+              </Button>
             </Stack>
-            </Stack>
+          </Stack>
         </Stack>
         <Flex
           flex={1}
@@ -133,16 +137,19 @@ export default function Home() {
               top={'50%'}
               transform={'translateX(-50%) translateY(-50%)'}
             />
-            <Image
-              alt={'Hero Image'}
-              fit={'cover'}
-              align={'center'}
-              w={'100%'}
-              h={'100%'}
-              src={
-                'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80'
-              }
-            />
+            <video
+              width="100%"
+              height="100%"
+              controls
+              autoPlay
+              muted
+              loop
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+            >
+              <source src="video/next_wave_presentation.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la vidéo.
+            </video>
+
           </Box>
         </Flex>
       </Stack>
